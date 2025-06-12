@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root{
+  --cor-do-texto: #e8eaed;
+  --cor-de-fundo: #202124;
+}
+
+body, input, label, button{
+  cursor: url(/img/cursorHeart_32x32.png) 16 16, auto;
+}
+
+body{
+  background-color: var(--cor-de-fundo);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background 0.5s ease;
+  font-family: sans-serif;
+  padding: 20px;
+  height: 100vh;
+}
+
+.cabecalho .cabecalho__titulo{
+  font-size: 36px;
+  font-weight: 400;
+  padding: 20px;
+}
+
+.cabecalho label{
+  font-size: 20px;
+}
+
+.cabecalho div{
+  display: flex;
+  flex-direction: row;
+}
+
+.cabecalho div #imagem{
+  width: 60%;
+}
+
+.cabecalho div p{
+  margin: auto;
+  padding: 0 0 0 10px;
+  font-size: 20px;
+}
+
+input {
+  margin: 10px 0;
+  padding: 12px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 16px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 36px;
+    padding: 25% 0 0 0;
+}
+
+.titulo{
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--cor-do-texto);
+}
+
+.pesquisa{
+  display: flex;
+  margin: 10px;
+  gap: 10px;
+}
+
+button{
+    margin: auto;
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 16px;
+    height: 50%;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header class="cabecalho">
+
+        <h1 class="cabecalho__titulo">Edite o seu Google</h1>
+
+        <!-- Cor -->
+        <label for="cor" class="label">Mude a cor do seu Google:</label>
+        <input type="text" id="cor" placeholder="Digite uma cor (ex: #ffcc00 ou red)">
+
+        <label for="imagem">Ou coloque uma imagem de fundo:</label>
+        <div>
+            <!-- Imagem -->
+            <input type="text" id="imagem" placeholder="Cole uma URL">   
+            <p>ou</p>
+            <!-- Imagem do dispositivo -->
+            <input type="file" id="imagemUpload" accept="image/*">
+        </div> 
+
+
+    </header>
+
+    <form onsubmit="return pesquisarOuRedirecionar(event)">
+        <label for="q" class="titulo">Google da Ell</label>
+        <div class="pesquisa">
+            <input type="text" id="q" placeholder="Pesquisar ou digitar link">
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+
+    <script>
+    function pesquisarOuRedirecionar(event) {
+        event.preventDefault();
+        const valor = document.getElementById("q").value.trim();
+
+        // Verifica se começa com http:// ou https://
+        if (/^https?:\/\//i.test(valor)) {
+        window.location.href = valor; // Redireciona direto
+        } else {
+        // Pesquisa no Google
+        const query = encodeURIComponent(valor);
+        window.location.href = `https://www.google.com/search?q=${query}`;
+        }
+        return false;
+    }
+
+    // Mudar cor do fundo
+    document.getElementById('cor').addEventListener('input', function () {
+      document.body.style.backgroundColor = this.value;
+      if(document.body.style.backgroundColor === ''){
+        document.querySelector('.titulo').style.color = 'white';
+        document.querySelector('.cabecalho').style.color = 'white';
+      }
+      else{
+        document.querySelector('.titulo').style.color = 'black';
+        document.querySelector('.cabecalho').style.color = 'black';
+      }
+
+    });
+
+    // Mudar imagem de fundo
+    document.getElementById('imagem').addEventListener('input', function () {
+      const url = this.value.trim();
+      if (url) {
+        document.body.style.backgroundImage = `url('${url}')`;
+      } else {
+        document.body.style.backgroundImage = 'none';
+      }
+    });
+
+    // Usar imagem do dispositivo como fundo
+    document.getElementById('imagemUpload').addEventListener('change', function () {
+      const file = this.files[0];
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          document.body.style.backgroundImage = `url('${e.target.result}')`;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        alert("Por favor, selecione um arquivo de imagem válido.");
+      }
+    });
+
+    
+    </script>
+
+
+    
+</body>
+</html>
