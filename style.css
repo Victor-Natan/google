@@ -28,10 +28,12 @@ body{
   font-size: 36px;
   font-weight: 400;
   padding: 20px;
+  color: var(--cor-do-texto);
 }
 
 .cabecalho label{
   font-size: 20px;
+  color: var(--cor-do-texto);
 }
 
 .cabecalho div{
