@@ -49,6 +49,7 @@ body{
   margin: auto;
   padding: 0 0 0 10px;
   font-size: 20px;
+  color: var(--cor-do-texto);
 }
 
 input {
